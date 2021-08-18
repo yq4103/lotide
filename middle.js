@@ -1,3 +1,24 @@
+const eqArrays = function(equalOne, equalTwo) {
+  if (equalOne.length !== equalTwo.length) {
+    return false;
+  }
+  for (let i = 0; i < equalOne.length; i++) {
+    if (equalOne[i] !== equalTwo[i]) {
+      return false;
+    }
+  }
+  return true;
+};
+
+const assertArraysEqual = function(equalOne, equalTwo) {
+
+  if (eqArrays(equalOne, equalTwo)) {
+    return (`Assertion Passed`);
+  } else {
+    return (`Assertion Failed`);
+  }
+};
+
 const middle = function(array) {
   //The middle function should return an array with only the middle element(s) of the provided array.
   //create a loop to loop through the array
