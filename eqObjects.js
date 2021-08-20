@@ -1,11 +1,3 @@
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    return (`Assertion Passed: ${actual} === ${expected}`);
-  } else if (actual !== expected) {
-    return (`Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
-
 const eqArrays = function(equalOne, equalTwo) {
   if (equalOne.length !== equalTwo.length) {
     return false;
@@ -25,16 +17,15 @@ const eqObjects = function(object1, object2) {
   if (Object.keys(object1).length !== Object.keys(object2).length) {
     return false;
   }
-//key is the key of the object, object1[key] is the value, comparing the value of the same key
+  //key is the key of the object, object1[key] is the value, comparing the value of the same key
   for (let key of Object.keys(object1)) {
     if (Array.isArray(object1[key]) && Array.isArray(object2[key])) {
-      if(!eqArrays(object1[key], object2[key])) {
+      if (!eqArrays(object1[key], object2[key])) {
         return false;
       }
+    } else if (object1[key] !== object2[key]) {
+      return false;
     }
-    if(object1[key] !== object2[key]) {
-    return false;
-    } 
   }
   return true;
 };
@@ -55,7 +46,7 @@ const cd2 = { c: "1", d: ["2", 3, 4] };
 eqObjects(cd, cd2); // => false
 
 
-console.log(assertEqual(eqObjects(ab, ba)), true);
-console.log(assertEqual(eqObjects(ab, abc)), false);
-console.log(assertEqual(eqObjects(cd, dc)), true);
-console.log(assertEqual(eqObjects(cd, cd2)), false);
+console.log(eqObjects(ab, ba));
+console.log(eqObjects(ab, abc));
+console.log(eqObjects(cd, dc));
+console.log(eqObjects(cd, cd2));
