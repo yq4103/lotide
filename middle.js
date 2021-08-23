@@ -1,3 +1,4 @@
+/*
 const eqArrays = function(equalOne, equalTwo) {
   if (equalOne.length !== equalTwo.length) {
     return false;
@@ -18,6 +19,9 @@ const assertArraysEqual = function(equalOne, equalTwo) {
     return (`Assertion Failed`);
   }
 };
+*/
+
+const assertArraysEqual = require ('./assertArraysEqual');
 
 const middle = function(array) {
   //The middle function should return an array with only the middle element(s) of the provided array.
@@ -41,6 +45,9 @@ const middle = function(array) {
 
 };
 
-console.log(middle([3]));
-console.log(middle([1, 2, 3, 4, 5]));
-console.log(middle([1, 2, 3, 4]));
+module.exports = middle;
+
+//middle([3]);
+//middle([1, 2, 3, 4, 5]);
+//middle([1, 2, 3, 4]);
+//assertArraysEqual(middle([1, 2, 3, 4]), [2, 3]);
