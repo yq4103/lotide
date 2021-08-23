@@ -1,3 +1,4 @@
+/*
 const eqArrays = function(equalOne, equalTwo) {
   if (equalOne.length !== equalTwo.length) {
     return false;
@@ -9,14 +10,20 @@ const eqArrays = function(equalOne, equalTwo) {
   }
   return true;
 };
+*/
+
+const eqArrays = require('./eqArrays');
 
 const assertArraysEqual = function(equalOne, equalTwo) {
 
   if (eqArrays(equalOne, equalTwo)) {
-    return (`Assertion Passed`);
+    console.log(`Assertion Passed: ${equalOne} === ${equalTwo}`);
   } else {
-    return (`Assertion Failed`);
+    console.log(`Assertion Failed: ${equalOne} !== ${equalTwo}`);
   }
 };
 
-console.log(assertArraysEqual([1, 2, 3, 6, 8], [1, 2, 3, 6, 9]));
+module.exports = assertArraysEqual;
+
+//assertArraysEqual([1, 2, 3, 6, 8], [1, 2, 3, 6, 9]);
+//assertArraysEqual([1, 2, 3, 6, 8], [1, 2, 3, 6, 8]);
