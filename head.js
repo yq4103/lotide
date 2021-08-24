@@ -1,11 +1,11 @@
 // FUNCTION IMPLEMENTATION
 
 const head = function(headArr) {
-  return headArr.splice(1);
+  return headArr.shift();
 };
 
 const assertEqual = require('./assertEqual');
-module.exports = head
+module.exports = head;
 
 /*const assertEqual = function(actual, expected) {
 
